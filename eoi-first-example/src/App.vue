@@ -47,6 +47,10 @@ export default {
             alert("Hello There!");
         }
     }
+    ,
+    props: {
+
+    }
 }
 </script>
 
