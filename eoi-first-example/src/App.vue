@@ -47,6 +47,16 @@ export default {
         greets() {
             alert("Hello There!");
         }
+    },
+    //métodos con propiedades cacheadas
+    computed: {
+
+    },
+    //Función se ejecuta cuando cambia propiedad
+    watch: {
+        nickname() {
+
+        }
     }
 }
 </script>
