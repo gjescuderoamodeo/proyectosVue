@@ -41,6 +41,11 @@ export default {
                 { name: "pepe" }
             ]
         }
+    },
+    methods: {
+        greets() {
+            alert("Hello There!");
+        }
     }
 }
 </script>
