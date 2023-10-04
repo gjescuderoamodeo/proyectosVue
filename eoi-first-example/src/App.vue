@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <AppHeader></AppHeader>
+        <AppHeader info="pepe"></AppHeader>
         <div>A webpage from {{ name }}</div>
         <div v-pre>A webpage from {{ name }}</div> <!--poner literal la variable {{ name }-->
         <div v-cloak>A webpage from {{ name }}</div> <!--hasta que no cargue no sale {{ name }-->
@@ -42,14 +42,11 @@ export default {
             ]
         }
     },
+    //funciones
     methods: {
         greets() {
             alert("Hello There!");
         }
-    }
-    ,
-    props: {
-
     }
 }
 </script>
