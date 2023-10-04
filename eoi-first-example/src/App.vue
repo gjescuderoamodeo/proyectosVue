@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <AppHeader info="pepe"></AppHeader>
+        <AppHeader info="pepe" />
         <div>A webpage from {{ name }}</div>
         <div v-pre>A webpage from {{ name }}</div> <!--poner literal la variable {{ name }-->
         <div v-cloak>A webpage from {{ name }}</div> <!--hasta que no cargue no sale {{ name }-->
@@ -63,7 +63,7 @@ export default {
 
 <style>
 body {
-    background-color: black;
+    background-color: rgb(31, 30, 30);
 }
 
 .page {
