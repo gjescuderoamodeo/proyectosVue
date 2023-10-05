@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" @click="setheightByPokemonId(25)">heightByPokemonId</button>
+    <button type="button" @click="setHeightByPokemonId(25)">heightByPokemonId</button>
     Altura es {{ heightByPokemonId }}
   </div>
 </template>
@@ -10,19 +10,44 @@ export default {
   data() {
     return {
       heightByPokemonId: 0,
-      pokemonsByType: '',
-      pokemonSpeciesName: '',
+      pokemonsByType: [],
       heightsByType: '',
+      pokemonSpeciesName: [],
     }
   },
   methods: {
-    async setheightByPokemonId(pokemonId) {
+    async setHeightByPokemonId(pokemonId) {
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
       await fetch(url)
         .then(response => response.json())
         .then(pokemon => {
           this.heightByPokemonId = pokemon.height;
         });
+    },
+    //pokemons por tipo
+    async setPokemonsByType(type) {
+      const url = `https://pokeapi.co/api/v2/type/${type}`
+      await fetch(url)
+        .then(response => response.json())
+        .then(pokemon => {
+          this.pokemonsByType = pokemon;
+        }).catch(() => {
+          this.pokemonsByType = [];
+        });
+    },
+    //pokemons por tipo
+    async setPokemonSpeciesNameByGeneration(generation) {
+      //let names = [];
+
+      const url = `https://pokeapi.co/api/v2/generation/${generation}`
+      await fetch(url)
+        .then(response => response.json())
+        .then(pokemons => {
+          pokemons.pokemon_species.forEach(pokemon => {
+            this.pokemonSpeciesName.push(pokemon.name)
+          });
+        });
+      this.pokemonSpeciesName.sort();
     }
   },
 
