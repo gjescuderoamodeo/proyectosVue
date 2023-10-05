@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input placeholder="Introduce la edad">
+    <input @input="updateTotalCount" placeholder="Introduce la edad">
   </div>
 </template>
 
@@ -32,14 +32,14 @@ export default {
     }
   },
   beforeMount() {
-    this.getCountPersonsWithAgeHighest(12);
+    //this.getCountPersonsWithAgeHighest(12);
   },
   methods: {
     calculateTotalCount(family, age) {
       family.forEach(member => {
-        /*if (member.age > age) {
+        if (member.age > age) {
           this.totalCount++;
-        }*/
+        }
         console.log(member.name);
         if (member.child.length === 0) {
           return;
@@ -48,7 +48,9 @@ export default {
       });
     },
     getCountPersonsWithAgeHighest(age) {
-      this.calculateTotalCount(this.family, 12);
+      this.totalCount = 0;
+      this.calculateTotalCount(this.family, age);
+      return this.totalCount;
     }
   }
 }
