@@ -1,0 +1,2 @@
+-crear proyecto vue
+npm create vue eoi-vue-first-example
