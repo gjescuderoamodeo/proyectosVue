@@ -1,2 +1,5 @@
 -crear proyecto vue
 npm create vue eoi-vue-first-example
+
+-para que use rutas
+app.use(router);
