@@ -26,33 +26,33 @@ describe("Pokemons", () => {
    *  con la altura de un pokemon obtenido según su id
    *
    * url: https://pokeapi.co/api/v2/pokemon/<id>
-   */  
+   */
   it("setHeightByPokemonId", async () => {
-    const wrapper = mount(Pokemons, { });
+    const wrapper = mount(Pokemons, {});
     await wrapper.vm.setHeightByPokemonId(25);
     expect(wrapper.vm.heightByPokemonId).toEqual(4);
   });
-/**
- * Método que actualiza el estado pokemonsByType
- *  con el listado de pokemons según su tipo
- *
- * url: https://pokeapi.co/api/v2/type/<id_type>
- */
+  /**
+   * Método que actualiza el estado pokemonsByType
+   *  con el listado de pokemons según su tipo
+   *
+   * url: https://pokeapi.co/api/v2/type/<id_type>
+   */
   it('setPokemonsByType', async () => {
-    const wrapper = mount(Pokemons, { });
+    const wrapper = mount(Pokemons, {});
     await wrapper.vm.setPokemonsByType('electric');
     expect(wrapper.vm.pokemonsByType).not.toEqual([]);
     await wrapper.vm.setPokemonsByType('tipo_que_no_existe');
     expect(wrapper.vm.pokemonsByType).toEqual([]);
   });
-/**
- * Método que actualiza el estado pokemonSpeciesName
- *  con el listado de especies de pokemon según la generación
- *
- * url: https://pokeapi.co/api/v2/generation/<id_generation>;
- */  
+  /**
+   * Método que actualiza el estado pokemonSpeciesName
+   *  con el listado de especies de pokemon según la generación
+   *
+   * url: https://pokeapi.co/api/v2/generation/<id_generation>;
+   */
   it('setPokemonSpeciesNameByGeneration', async () => {
-    const wrapper = mount(Pokemons, { });
+    const wrapper = mount(Pokemons, {});
     const names = [
       'treecko',
       'torchic',
@@ -190,17 +190,18 @@ describe("Pokemons", () => {
       'metang',
       'metagross',
     ];
+    names.sort();
     await wrapper.vm.setPokemonSpeciesNameByGeneration(3);
     expect(wrapper.vm.pokemonSpeciesName).toEqual(names);
   });
-/**
- * Método que actualiza el estado heightsByType
- *  con el listado de altura de los pokemons según su tipo
- *
- * url: https://pokeapi.co/api/v2/type/<id_type>
- */
+  /**
+   * Método que actualiza el estado heightsByType
+   *  con el listado de altura de los pokemons según su tipo
+   *
+   * url: https://pokeapi.co/api/v2/type/<id_type>
+   */
   it('setHeightsByType', async () => {
-    const wrapper = mount(Pokemons, { });
+    const wrapper = mount(Pokemons, {});
     const heights = [
       4, 8, 3, 10, 5, 12, 11, 8, 16, 5, 12, 3, 6, 8, 14, 6, 19, 6, 15, 4, 4, 5, 9, 14, 4, 12, 18, 3, 8, 16, 4,
       1, 8, 2, 12, 21, 7, 15, 29, 5, 10, 2, 5, 15, 3, 18, 38, 15, 3, 10, 4, 16, 3, 3, 18, 23, 12, 3, 4, 9, 3,
