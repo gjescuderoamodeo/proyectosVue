@@ -11,7 +11,7 @@ export default {
     return {
       heightByPokemonId: 0,
       pokemonsByType: [],
-      heightsByType: '',
+      heightsByType: [],
       pokemonSpeciesName: [],
     }
   },
@@ -48,6 +48,38 @@ export default {
           });
         });
       this.pokemonSpeciesName.sort();
+    },
+
+    //Método que actualiza  el listado de altura de los pokemons según su tipo
+    async setHeightsByType(type) {
+      let pokemonFetch = [];
+
+      const url = `https://pokeapi.co/api/v2/type/${type}`
+      await fetch(url)
+        .then(response => response.json())
+        .then(pokemons => {
+          pokemons.pokemon.forEach(pokemon => {
+            //lamada
+            pokemonFetch.push(
+              fetch(pokemon.pokemon.url)
+                .then(response => response.json())
+                .then(pokemon => {
+                  //heightsByType.push(pokemon.height);
+                  return pokemon;
+                }))
+          })
+          return Promise.all(pokemonFetch);
+          /*const pokemons2 = await Promise.all(pokemonFetch);
+          pokemons2.forEach(pokemon => {
+            this.heightsByType.push(pokemon.height);
+          })*/
+        }
+        )
+        .then(pokemons => {
+          pokemons.forEach(pokemon => {
+            this.heightsByType.push(pokemon.height);
+          })
+        })
     }
   },
 
