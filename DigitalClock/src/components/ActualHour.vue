@@ -1,6 +1,15 @@
 <template>
-  <div id="app">
-    {{ horaActual }} : {{ minutosActual }} : {{ segundosActual }}
+  <div class="app">
+    <table>
+      <tr>
+        <td>{{ horaActual }}</td>
+        <td class="puntos"> : </td>
+        <td>{{ minutosActual }}</td>
+        <td class="puntos"> : </td>
+        <td>{{ segundosActual }}</td>
+        <td class="pm">PM</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -13,6 +22,9 @@ export default {
       minutosActual: '',
       segundosActual: ''
     };
+  },
+  props() {
+    theme = "rainbow", "blue", "green";
   },
   created() {
     // Actualizar la hora cada segundo
@@ -35,5 +47,26 @@ export default {
 </script>
 
 <style>
-/* Estilos CSS aquí si es necesario */
+.app {
+  font-size: 5rem;
+  color: rgb(255, 0, 0);
+  text-align: center;
+  align-items: center;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+  border: 2px solid white;
+  width: 20px;
+}
+
+.puntos {
+  border: 2px solid rgb(0, 164, 14);
+}
+
+.pm {
+  font-size: 1rem;
+  width: 5rem;
+}
 </style>
