@@ -5,11 +5,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
       path: '/vista1',
       name: 'vista1',
       component: HomeView
