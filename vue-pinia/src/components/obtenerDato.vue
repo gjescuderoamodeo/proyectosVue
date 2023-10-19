@@ -1,23 +1,20 @@
 <template>
   <div>
-    <ObtenerDato @updateDato="updateDato"/>
+    <input @input="setDato" placeholder="Escribe algo"/>
   </div>
 </template>
 
 <script>
-import ObtenerDato from '../components/obtenerDato.vue';
   export default {
-    components: {
-      ObtenerDato,
-    },
     data() {
       return {
         dato: ''
       }
     },
     methods: {
-      updateDato(newDato) {
-        this.dato = newDato;
+      setDato(e) {
+        this.dato = e.target.value;
+        this.$emit('updateDato', this.dato);
       }
     },
   }

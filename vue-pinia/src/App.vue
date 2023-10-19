@@ -4,11 +4,13 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/vista1">vista1</RouterLink>
-      <RouterLink to="/vista2">vista2</RouterLink>
-      <RouterLink to="/vista3">vista3</RouterLink>
-    </nav>
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Vista1</RouterLink>
+        <RouterLink to="/vista2">Vista2</RouterLink>
+        <RouterLink to="/vista3">Vista3</RouterLink>
+      </nav>
+    </div>
   </header>
 
   <RouterView />
