@@ -1,24 +1,32 @@
 <template>
-  <div>
-    <VisualizarDato :dato="dato"/>
-  </div>
+    <div>
+        <VisualizarDato :dato="dato" />
+    </div>
 </template>
 
 <script>
 import VisualizarDato from "../components/visualizarDato.vue";
-  export default {
+import eventBus from '../js/eventBus';
+export default {
     components: {
-      VisualizarDato,
+        VisualizarDato,
     },
     data() {
-      return {
-        dato: 'hola mundo'
-      }
+        return {
+            dato: 'hola mundo'
+        }
     },
-    
-  }
+
+    beforeMount() {
+        eventBus.$on('updateDato', this.updateDato)
+    },
+    methods: {
+        updateDato(newDato) {
+            this.dato = newDato;
+        }
+    },
+
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
