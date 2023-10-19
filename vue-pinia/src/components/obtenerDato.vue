@@ -1,25 +1,25 @@
 <template>
-  <div>
-    <input @input="setDato" placeholder="Escribe algo"/>
-  </div>
+    <div>
+        <input @input="setDato" placeholder="Escribe algo" />
+    </div>
 </template>
 
 <script>
-  export default {
+import eventBus from '../js/eventBus';
+export default {
     data() {
-      return {
-        dato: ''
-      }
+        return {
+            dato: ''
+        }
     },
     methods: {
-      setDato(e) {
-        this.dato = e.target.value;
-        this.$emit('updateDato', this.dato);
-      }
+        setDato(e) {
+            this.dato = e.target.value;
+            eventBus.$emit('updateDato', this.dato);
+            //this.$emit('updateDato', this.dato);
+        }
     },
-  }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
