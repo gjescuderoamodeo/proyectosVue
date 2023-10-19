@@ -1,28 +1,30 @@
 <template>
-  <div>
-    <ObtenerDato @updateDato="updateDato"/>
-  </div>
+    <div>
+        <ObtenerDato @updateDato="updateDato" />
+    </div>
 </template>
 
 <script>
 import ObtenerDato from '../components/obtenerDato.vue';
-  export default {
+import eventBus from '../js/eventBus';
+export default {
     components: {
-      ObtenerDato,
+        ObtenerDato,
     },
     data() {
-      return {
-        dato: ''
-      }
+        return {
+            dato: ''
+        }
+    },
+    beforeMount() {
+        eventBus.$on('updateDato', this.updateDato)
     },
     methods: {
-      updateDato(newDato) {
-        this.dato = newDato;
-      }
+        updateDato(newDato) {
+            this.dato = newDato;
+        }
     },
-  }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
