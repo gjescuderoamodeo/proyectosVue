@@ -6,18 +6,24 @@
 
 <script>
 import eventBus from '../js/eventBus';
+import { datoStore } from '../stores/datoStore';
+import { mapActions, mapState } from 'pinia';
 export default {
-    data() {
+    computed: {
+        ...mapActions(datoStore, ['dato'])
+    },
+    /*data() {
         return {
             dato: ''
         }
-    },
+    },*/
     methods: {
-        setDato(e) {
+        /*setDato(e) {
             this.dato = e.target.value;
             eventBus.$emit('updateDato', this.dato);
             //this.$emit('updateDato', this.dato);
-        }
+        },*/
+        ...mapActions(datoStore, ['setDato']),
     },
 }
 </script>

@@ -7,11 +7,16 @@
 <script>
 import VisualizarDato from "../components/visualizarDato.vue";
 import eventBus from '../js/eventBus';
+import { mapActions, mapState } from 'pinia';
+import { datoStore } from "../stores/datoStore";
 export default {
     components: {
         VisualizarDato,
     },
-    data() {
+    computed: {
+        ...mapState(datoStore, ['dato']),
+    }
+    /*data() {
         return {
             dato: 'hola mundo'
         }
@@ -24,7 +29,7 @@ export default {
         updateDato(newDato) {
             this.dato = newDato;
         }
-    },
+    },*/
 
 }
 </script>
